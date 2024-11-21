@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const mySqlStore = require('express-mysql-session')(session);
 const dotenv = require('dotenv');
+const ejs = require('ejs'); 
 const path = require('path');
 //initialize dotenv and express
 dotenv.config();
