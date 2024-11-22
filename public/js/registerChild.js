@@ -13,7 +13,7 @@ document.getElementById('child_register').addEventListener('submit', async (e) =
     if(password !== confirm_password){
         alert('passwords do not match!')
     }
-    //check the req body beign collected
+    //check the object  been collected
     console.log({first_name, last_name, email, dob, password });
     
         const response = await fetch('/healthhero/api/user/child_register', {
@@ -27,7 +27,7 @@ document.getElementById('child_register').addEventListener('submit', async (e) =
         
 
         if (response.ok){
-            const result = await response.json();
+          //  const result = await response.json();
             console.log("Young Hero Registered successfully!")
         } else {
             console.error("An error occured during registration!", error)
