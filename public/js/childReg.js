@@ -1,4 +1,12 @@
-document.getElementById('child_register').addEventListener('submit', async (e) => {
+const footer = document.getElementById('footer');
+const header = document.getElementById('header');
+header.append("this is the header section");
+// const date = Date()
+// date.now().getFullYear()
+footer.innerHTML = `<p style="position: fixed; bottom: 0; width: 100%; " class="text-center">Copyright 2024. All rights reserved.</p>` 
+ 
+const form = document.getElementById('child_register') 
+ form.addEventListener('submit', async (e) => {
     e.preventDefault(); 
     const first_name = document.getElementById('first_name').value;
     const last_name = document.getElementById('last_name').value;
@@ -6,6 +14,7 @@ document.getElementById('child_register').addEventListener('submit', async (e) =
     const dob = document.getElementById('dob').value;
     const password = document.getElementById('password').value;
     const confirm_password = document.getElementById('confirm_password').value;
+    
 
     if(password.length < 5){
       alert("Password should be atleast 5 characters!")  
@@ -13,8 +22,6 @@ document.getElementById('child_register').addEventListener('submit', async (e) =
     if(password !== confirm_password){
         alert('passwords do not match!')
     }
-    //check the object  been collected
-    console.log({first_name, last_name, email, dob, password });
     
         const response = await fetch('/healthhero/api/user/child_register', {
             method: 'POST',
@@ -32,4 +39,8 @@ document.getElementById('child_register').addEventListener('submit', async (e) =
         } else {
             console.error("An error occured during registration!", error)
         }
+
+
     })  
+
+    

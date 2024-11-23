@@ -13,7 +13,7 @@ const app = express();
 
 //set EJS as the views engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '/views'));
 //middleware for the static files
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
