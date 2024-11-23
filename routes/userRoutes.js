@@ -18,5 +18,7 @@ router.get('/child_register', (req, res) => {
     res.render('pages/register/child_register');
 });
 
+router.get('/child_register', userController.registerChild);
+
 
 module.exports = router;

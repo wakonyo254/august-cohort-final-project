@@ -23,7 +23,8 @@ app.use(bodyParser.urlencoded({extended: true }));
 //main route center
 app.use('/healthhero/api/user', userRoutes);
 
-//try serving
+//try serving  => routes.js
+//app.use('/child_register', userRoutes);
 
 
 //start a server
