@@ -20,5 +20,9 @@ router.get('/child_register', (req, res) => {
 
 router.post('/child_register', userController.registerChild);
 
+router.get('/parent_register', (req, res) => {
+    res.render('parent_register');
+});
+router.post('/parent_register', userController.registerParent);
 
 module.exports = router;

@@ -33,3 +33,30 @@ exports.registerChild = async (req, res) => {
         res.status(500).json({message: 'Oops an error occured during registration. Please try again!', error:error.message});
     }
 }
+
+//guadian signup
+exports.registerParent = async (req, res) => {
+    const { name, email, password } = req.body;
+    //check
+    console.log(req.body);
+    try{
+        const [user] = await db.execute('SELECT email FROM parents WHERE email = ?', [email]);
+        if(user.length > 0){
+            return res.status(400).json({message: 'Parent already exists!'});
+        }
+        //password hash
+        const passwordHash = await bcrypt.hash(password, 10);
+        //confirm if password is hashed
+        console.log(passwordHash)
+        
+        await db.execute('INSERT INTO parents(name, email, password_hash) VALUES(?, ?, ?)',
+            [name, email, passwordHash]);
+            return res.status(201).json({message: 'Guardian successfully registered!!'});
+    } catch(error){
+        console.log(error);
+        res.status(500).json({message: 'An error occured during registration. Please try again!', error:error.message});
+    }
+
+    
+
+}
