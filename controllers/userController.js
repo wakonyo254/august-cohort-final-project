@@ -38,16 +38,21 @@ exports.registerChild = async (req, res) => {
 exports.registerParent = async (req, res) => {
     const { name, email, password } = req.body;
     //check
-    console.log(req.body);
+    console.log('Incoming registration details: ', req.body);
     try{
-        const [user] = await db.execute('SELECT email FROM parents WHERE email = ?', [email]);
-        if(user.length > 0){
+        const [results] = await db.execute('SELECT email FROM parents WHERE email = ?', [email]);
+        //check
+        console.log('db results:', results);
+
+        if (results.length > 0) {
+            //check
+            console.log('guardian exists: ', email);
             return res.status(400).json({message: 'Parent already exists!'});
         }
         //password hash
         const passwordHash = await bcrypt.hash(password, 10);
         //confirm if password is hashed
-        console.log(passwordHash)
+        console.log('the hashed password:', passwordHash)
         
         await db.execute('INSERT INTO parents(name, email, password_hash) VALUES(?, ?, ?)',
             [name, email, passwordHash]);

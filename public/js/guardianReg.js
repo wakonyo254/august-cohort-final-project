@@ -6,11 +6,13 @@ document.getElementById('parent_register').addEventListener('submit', async func
     const confirmPassword = document.getElementById('confirm_password').value;
 
     if (password.length < 5){
-        alert('Password should be atleast 5 characters!')
+        alert('Password should be atleast 5 characters!');
+        return;
     }
 
     if (password !== confirmPassword) {
-        alert('Passwords do not match!')
+        alert('Passwords do not match!');
+        return;
     }
 
     //check the object beign collected
@@ -28,8 +30,8 @@ document.getElementById('parent_register').addEventListener('submit', async func
         if(response.ok){
             console.log('Guardian successfully registered!');
             Toastify({
-                text: "Registered successfully!",
-                duration: 3000,
+                text: "Guardian registered successfully!",
+                duration: 2000,
                 close: true,
                 gravity: "top",
                 position: "center",
@@ -39,7 +41,7 @@ document.getElementById('parent_register').addEventListener('submit', async func
             console.log('An error occured during registration!')
             Toastify({
                 text: "An error occured during registration. Please try again.",
-                duration: 3000,
+                duration: 2000,
                 close: true,
                 gravity: "top",
                 position: "center",
