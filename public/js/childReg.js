@@ -5,8 +5,7 @@ header.append("this is the header section");
 // date.now().getFullYear()
 footer.innerHTML = `<p style="position: fixed; bottom: 0; width: 100%; " class="text-center">Copyright 2024. All rights reserved.</p>` 
  
-const form = document.getElementById('child_register') 
- form.addEventListener('submit', async (e) => {
+document.getElementById('child_register').addEventListener('submit', async function(e) {
     e.preventDefault(); 
     const first_name = document.getElementById('first_name').value;
     const last_name = document.getElementById('last_name').value;
@@ -22,7 +21,7 @@ const form = document.getElementById('child_register')
     if(password !== confirm_password){
         alert('passwords do not match!')
     }
-    
+    try {
         const response = await fetch('/healthhero/api/user/child_register', {
             method: 'POST',
             headers: {
@@ -30,17 +29,17 @@ const form = document.getElementById('child_register')
             },
             body: JSON.stringify({first_name: first_name, last_name: last_name, email: email, dob: dob, password: password})
         });
-    
+       // if(!response.ok) throw new Error('Ooops! an error occured. Please try again');
+       if(response.ok){
+        alert("Young Hero Registered successfully!")
+       } else{
+        alert('An error occured! Please try again later.');
+       }
         
-
-        if (response.ok){
-          //  const result = await response.json();
-            console.log("Young Hero Registered successfully!")
-        } else {
-            console.error("An error occured during registration!", error)
-        }
-
-
+    } catch(error){
+        console.error('An error occured during registration!', error);
+        
+    }
     })  
 
     

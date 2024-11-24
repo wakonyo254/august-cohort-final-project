@@ -16,7 +16,7 @@ exports.registerChild = async (req, res) => {
     //confirm the collected field inputs
     console.log(req.body);
     try{
-        const [user] = await db.execute('SELECT * FROM children WHERE email = ?', [email]);
+        const [user] = await db.execute('SELECT email FROM children WHERE email = ?', [email]);
         if(user.length > 0){
             return res.status(400).json({message: 'The user already exists!'});
         }
