@@ -1,5 +1,6 @@
 const express = require('express');
 const userController = require('../controllers/userController');
+const adminController = require('../controllers/adminController');
 const { check } = require('express-validator');
 const router = express.Router();
 
@@ -13,16 +14,25 @@ router.post('/child_register',
     ],
     userController.registerChild
 );
-
+//child routes
 router.get('/child_register', (req, res) => {
     res.render('child_register');
 });
 
 router.post('/child_register', userController.registerChild);
 
+//parent routes
+
 router.get('/parent_register', (req, res) => {
     res.render('parent_register');
 });
 router.post('/parent_register', userController.registerParent);
+
+//admin routes
+
+router.get('/adminLogin', (req, res) => {
+    res.render('adminLogin');
+});
+router.post('/adminLogin', adminController.adminLogin)
 
 module.exports = router;
