@@ -35,4 +35,10 @@ router.get('/adminLogin', (req, res) => {
 });
 router.post('/adminLogin', adminController.adminLogin)
 
+router.get('/admindash', (req, res) => {
+    res.render('admindash');
+});
+router.post('/adminLogin', adminController.adminLogin)
+
+
 module.exports = router;
