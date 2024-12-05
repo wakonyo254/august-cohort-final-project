@@ -40,6 +40,8 @@ document.getElementById('child_register').addEventListener('submit', async funct
         console.error('An error occured during registration!', error);
         
     }
+    //set the child dashboard
+    window.location.href= '/healthhero/api/user/childDashboard'
     })  
 
     
