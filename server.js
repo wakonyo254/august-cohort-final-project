@@ -19,13 +19,30 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true }));
 
+//session configuration
+const sessionStore = new mySqlStore({}, db);
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60,
+    }
+
+}));
+
+//ensure session data is accessible troughtout
+app.use((req, res, next) => {
+    res.locals.user = req.session.user || null;
+    next();
+});
+
 
 //main route center
 app.use('/healthhero/api/user', userRoutes);
 
 
-//try serving  => routes.js
-//app.use('/child_register', userRoutes);
 
 
 //start a server

@@ -21,6 +21,13 @@ router.get('/child_register', (req, res) => {
 
 router.post('/child_register', userController.registerChild);
 
+//child - login
+router.get('/child_login', (req, res) => {
+    res.render('child_login');
+});
+
+router.post('/child_login', userController.loginChild);
+
 //parent routes
 
 router.get('/parent_register', (req, res) => {
