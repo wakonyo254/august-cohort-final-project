@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 //main route center
 app.use('/healthhero/api/user', userRoutes);
 
-
+//set a splash page as the welcome page
 
 
 //start a server

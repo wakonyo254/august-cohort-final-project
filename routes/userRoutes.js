@@ -14,6 +14,16 @@ router.post('/child_register',
     ],
     userController.registerChild
 );
+
+//splash page route
+router.get('/', (req, res) =>{
+    res.render('splash.ejs')
+});
+//home page routes
+router.get('/home', (req, res) =>{
+    res.render('home.ejs')
+});
+
 //child routes
 router.get('/child_register', (req, res) => {
     res.render('child_register');

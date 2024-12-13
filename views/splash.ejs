@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Heroes</title>
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
-<body>
-    <div class="splash-contain">
-        <h1>Welcome to Health Heroes</h1>
-        <p>Your journey to a better and good health starts here!</p>
-        <a hrf="/home" class="btn">Get Started</a>
+<body class="land">
+    <div class="splash-container">
+        <h1 class="welcome-message" >Welcome to Health Heroes</h1>
+        <br>
+        <p id="caption" class="welcome-message" >Your journey to a better and good health starts here!</p>
+       <!-- <a href="/home" class="btn">Get Started</a> -->
+        <button onclick="window.location.href='/healthhero/api/user/home';" class ="btn">Get Started</button> -->
     </div>
-    <script src="/public/js/splash.js"></script>
+    <footer>
+        <p>&copy; 2024 Health Heroes. All rights reserved.</p>
+        <p>Contact us: <a href="info@healthhero.com">info@healthhero.com</a></p>
+    </footer>
+   
 </body>
 </html>

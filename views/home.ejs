@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Heroes - Home</title>
-    <link rel="stylesheet" href="/public/css/syles.css">
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
-<body>
-  <!--  <% include ../partials/header %> -->
+<body class="home">
+    <!--navigation bar-->
+    <nav>
+      <ul class="navbar">
+          <li><a href="/healthhero/api/user/child_register">Young Hero</a></li>
+          <li><a href="/healthhero/api/user/parent_register">Parent</a></li>
+          <li><a href="/healthhero/api/user/adminLogin">Admin</a></li>
+      </ul>
+  </nav>
     <main>
-        <h1>Welcome to Health Heroes!</h1>
-        <p>Your one stop solution for children's health and wellness.</p>
-        <a href="/register" class="btn">Sign Up</a>
-        <a href="/login" class="btn">Login</a>
+        <h1 class="welcome_message" >Welcome to Health Heroes!</h1>
+        <br>
+        <p id="caption" class="welcome_message" >Your one stop solution for children's health and wellness.</p>
+        <br>
+        <p id="messag" class="welcome_message" >Select a category to proceed.</p>
+      
     </main>
-   <!-- <% include ../partials/footer %>  -->
+   <footer>
+        <p>&copy; 2024 Health Heroes. All rights reserved.</p>
+        
+    </footer>
 </body>
 </html>
