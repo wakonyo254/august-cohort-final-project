@@ -36,6 +36,11 @@ router.get('/child_login', (req, res) => {
     res.render('child_login.ejs');
 });
 
+//childdash
+router.get('/childdash', (req, res) => {
+    res.render('childdash.ejs');
+});
+
 router.post('/child_login', userController.loginChild);
 
 //parent routes
@@ -61,5 +66,11 @@ router.get('/getYoung-hero', adminController.getYoungHeros, (req, res) => {
 });
 
 router.post('/addAdmin', adminController.addAdmin);
+
+router.get('/addChallenge', (req, res) => {
+    res.render('addChallenge.ejs');
+});
+
+router.post('/addChallenge', adminController.addChallenge);
 
 module.exports = router;

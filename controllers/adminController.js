@@ -37,7 +37,7 @@ exports.addAdmin = async (req, res) => {
         if(user.length > 0){
             return res.status(400).json({message: 'Admin already exists!'});
         }
-        //password hashing for storage
+        //password hash
         const password_hash = await bcrypt.hash(password, 10);
         
         
@@ -49,3 +49,23 @@ exports.addAdmin = async (req, res) => {
         res.status(500).json({message: 'An error occured while adding admin.', error:error.message});
     }
 } 
+
+//add a challenge
+exports.addChallenge = async (req, res) => {
+    const { title, description, status } = req.body;
+
+    try {
+        // Check if the challenge title exists
+        const [existingChallenge] = await db.execute('SELECT * FROM challenges WHERE title = ?', [title]);
+        if (existingChallenge.length > 0) {
+            return res.status(400).json({ message: 'Challenge with this title already exists!' });
+        }
+        await db.execute('INSERT INTO challenges (title, description, status) VALUES (?, ?, ?)', [title, description, status]);
+
+        // Send a success response
+        return res.status(200).json({ message: 'Challenge added successfully!' });
+    } catch (error) {
+        console.error('Error adding challenge:', error);
+        return res.status(500).json({ message: 'An error occurred while adding the challenge.' });
+    }
+};

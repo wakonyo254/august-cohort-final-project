@@ -1,9 +1,5 @@
-const footer = document.getElementById('footer');
-const header = document.getElementById('header');
-header.append("this is the header section");
-// const date = Date()
-// date.now().getFullYear()
-footer.innerHTML = `<p style="position: fixed; bottom: 0; width: 100%; " class="text-center">Copyright 2024. All rights reserved.</p>` 
+
+footer.innerHTML = `<p style="position: fixed; bottom: 0; width: 100%; text-align: center;" class="text-center">Copyright 2024. All rights reserved.</p>` 
  
 document.getElementById('child_register').addEventListener('submit', async function(e) {
     e.preventDefault(); 
@@ -29,19 +25,24 @@ document.getElementById('child_register').addEventListener('submit', async funct
             },
             body: JSON.stringify({first_name: first_name, last_name: last_name, email: email, dob: dob, password: password})
         });
-       // if(!response.ok) throw new Error('Ooops! an error occured. Please try again');
+        
+        const result = await response.json();
+
+       
        if(response.ok){
-        alert("Young Hero Registered successfully!")
+        alert(result.message);
+        document.getElementById('child_register').reset();
+         window.location.href= '/healthhero/api/user/childdash'
        } else{
-        alert('An error occured! Please try again later.');
+        alert(result.message);
+        document.getElementById('child_register').reset();
        }
         
     } catch(error){
         console.error('An error occured during registration!', error);
-        
+        alert('An error occered while registering young hero!!');
     }
-    //set the child dashboard
-    window.location.href= '/healthhero/api/user/childDashboard'
-    })  
+  
+    });  
 
     

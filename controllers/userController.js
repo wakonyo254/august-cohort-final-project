@@ -27,7 +27,8 @@ exports.registerChild = async (req, res) => {
         
         await db.execute('INSERT INTO children(first_name, last_name, email, date_of_birth, password_hash) VALUES(?, ?, ?, ?, ?)',
             [first_name, last_name, email, dob, passwordHash]);
-            return res.status(201).json({message: 'Young Hero successfully registered!!'});
+            res.status(201).json({message: 'Young Hero successfully registered!!'});
+            res.redirect( "/healthhero/api/user/childdash");
     } catch(error){
         console.log(error);
         res.status(500).json({message: 'Oops an error occured during registration. Please try again!', error:error.message});
@@ -40,13 +41,13 @@ exports.loginChild = async (req, res) => {
 
     try {
         const [userRow] = await db.execute('SELECT * FROM children WHERE email = ?', [email]);
-        if(!user.length > 0){
+        if(!userRow.length > 0){
             console.error('user doesnot exist .please register!');
             return res.status(500).redirect('/child_register')
         }
         const user = userRow[0];
 
-        const  isMatch = await bcrypt.compare(password, passwordHash);
+        const  isMatch = await bcrypt.compare(password, user.password_hash);
 
         if(!isMatch){
             return res.status(400).json({message: 'Inavlid credentials!'});
@@ -56,7 +57,8 @@ exports.loginChild = async (req, res) => {
         req.session.save((err) => {
             console.error ('Session save error:', err);
         })
-        return res.status(200).json({message: 'Successfully login!', user: req.session.user});
+         res.status(200).json({message: 'Successfully login!'});
+        // return res.redirect( "/healthhero/api/user/childdash");
     } catch(error) {
         console.error(error);
         return res.status(500).json({message: 'An error occured during login!!', error});
