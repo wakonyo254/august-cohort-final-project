@@ -3,103 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test admin dashboard</title>
+    <title>Admin Dashboard</title>
 
-    <!-- Montserrat Font -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-   <!--fonts-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-
     <link href="/css/styles.css" rel="stylesheet">
 </head>
 <body id="body">
- <div class="grid-container">
-    <header class="header">
-        <div class="menu-icon" onclick="openSidebar()">
-            <span class="material-symbols-outlined">menu</span>
-        </div>
-        <div class="header-left">
-            <span class="material-icons-outlined">search</span>
-        </div>
-        <div class="header-right">
-            <span class="material-icons-outlined">mail</span>
-            <span class="material-icons-outlined">account_circle</span>
-        </div>
-    </header>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-symbols-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined">mail</span>
+                <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
 
-    <aside id="sidebar">
-        <div class="sidebar-title">
-            <div class="sidebar-brand">
-                <span class="material-icons-outlined">admin_panel_settings</span> Admin
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">admin_panel_settings</span> Admin
+                </div>
             </div>
-            <!-- <span class="material-icons-outlined" onclick="closeSidebar()">close_small</span> -->
-        </div>
 
-        <ul class="sidebar-list">
-            <li class="sidebar-list-item">
-                <a href="#" target="_blank">
-                    <span class="material-icons-outlined">dashboard</span> Dashboard
-                </a>
-            </li>
-            <li class="sidebar-list-item">
-                <a href="#" target="_blank">
-                    <span class="material-icons-outlined">person_add</span> Add Admin
-                </a>
-            </li>
-           
-              <li class="sidebar-list-item">
-                <a href="#" target="_blank">
-                    <span class="material-icons-outlined">group</span> Young Heroes
-                </a>
-              </li>
-              <li class="sidebar-list-item">
-                <a href="#" target="_blank">
-                  <span class="material-icons-outlined">poll</span> Challenges
-                </a>
-              </li>
-              <li class="sidebar-list-item">
-                <a href="#" target="_blank">
-                  <span class="material-icons-outlined">settings</span> Settings
-                </a>
-              </li>
-        </ul>
-    </aside>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item">
+                    <a href="#">
+                        <span class="material-icons-outlined">dashboard</span> Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="#add-admin-section">
+                        <span class="material-icons-outlined">person_add</span> Add Admin
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/healthhero/api/user/getYoung-hero" target="_blank">
+                        <span class="material-icons-outlined">group</span> Young Heroes
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="#">
+                        <span class="material-icons-outlined">poll</span> Challenges
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="#">
+                        <span class="material-icons-outlined">settings</span> Settings
+                    </a>
+                </li>
+            </ul>
+        </aside>
 
-    <main class="main-container">
-        <div class="main-title">
-            <h2>DASHBOARD</h2>
-        </div>
-        <div class="main-cards">
-            <div class="card">
-                <div class="card-inner">
-                    <h3>Challenges</h3>
-                    <span class="material-icons-outlined">poll</span>
-                </div>
-                <h1>249</h1>
+        <main class="main-container">
+            <div class="main-title">
+                <h2>DASHBOARD</h2>
             </div>
-            <div class="card">
-                <div class="card-inner">
-                    <h3>Young Heros</h3>
-                    <span class="material-icons-outlined">group</span>
+            <div class="main-cards">
+                <div class="card">
+                    <div class="card-inner">
+                        <h3>Challenges</h3>
+                        <span class="material-icons-outlined">poll</span>
+                    </div>
+                    <h1>249</h1>
                 </div>
-                <h1>25</h1>
-            </div>
-            <div class="card">
-                <div class="card-inner">
-                    <h3> Admin</h3>
-                    <span class="material-icons-outlined">person_add</span>
+                <div class="card">
+                    <div class="card-inner">
+                        <h3>Young Heroes</h3>
+                        <span class="material-icons-outlined">group</span>
+                    </div>
+                    <h1>25</h1>
                 </div>
-                <h1>Add another admin</h1>
-            </div>
-            <div class="card">
-                <div class="card-inner">
-                    <h3> Admin</h3>
-                    <span class="material-icons-outlined">manage_accounts</span>
+                <div class="card">
+                    <div class="card-inner">
+                        <h3>Admin</h3>
+                        <span class="material-icons-outlined">person_add</span>
+                    </div>
+                    <h1>Add another admin</h1>
                 </div>
-                <h1>View Profile</h1>
+                <div class="card">
+                    <div class="card-inner">
+                        <h3>Admin</h3>
+                        <span class="material-icons-outlined">manage_accounts</span>
+                    </div>
+                    <h1>View Profile</h1>
+                </div>
             </div>
-            
- <!--js connection-->
-   <script src="js/main.js"></script> 
+
+            <!-- Add Admin Section -->
+            <section id="add-admin-section">
+                <h2>Add New Admin</h2>
+                <form id="addAdminForm" action="/healthhero/api/user/addAdmin" method="POST">
+                    <label for="name">Username:</label>
+                    <input type="text" id="name" name="name" required>
+                    <br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <br>
+                    <button type="submit">Add Admin</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- JS Connection -->
+    <script src="/js/admindash.js"></script>
 </body>
 </html>

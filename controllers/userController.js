@@ -95,3 +95,4 @@ exports.registerParent = async (req, res) => {
 
 }
 
+

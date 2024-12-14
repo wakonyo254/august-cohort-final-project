@@ -17,5 +17,7 @@ document.getElementById('adminLogin').addEventListener('submit', async function 
     });
     if(!response.ok){
         alert('An error occured during login. Please try again later');
-    }
+    }  else{
+       window.location.href='/healthhero/api/user/admindash';
+      }
 })

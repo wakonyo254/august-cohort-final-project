@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Young Heroes</title>
+    <link rel="stylesheet" href="/css/styles.css"> 
+</head>
+<body>
+    <h1>Young Heroes</h1>
+    <ul>
+        <% if (heroes && heroes.length > 0) { %>
+            <% heroes.forEach(hero => { %>
+                <li>
+                    <strong>Child ID:</strong> <%= hero.child_id %> |
+                    <strong>Name:</strong> <%= hero.first_name %> |
+                    <strong>Email:</strong> <%= hero.email %>
+                </li>
+            <% }); %>
+        <% } else { %>
+            <li>No heroes found.</li>
+        <% } %>
+    </ul>
+</body>
+</html>

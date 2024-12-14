@@ -26,14 +26,14 @@ router.get('/home', (req, res) =>{
 
 //child routes
 router.get('/child_register', (req, res) => {
-    res.render('child_register');
+    res.render('child_register.ejs');
 });
 
 router.post('/child_register', userController.registerChild);
 
 //child - login
 router.get('/child_login', (req, res) => {
-    res.render('child_login');
+    res.render('child_login.ejs');
 });
 
 router.post('/child_login', userController.loginChild);
@@ -41,7 +41,7 @@ router.post('/child_login', userController.loginChild);
 //parent routes
 
 router.get('/parent_register', (req, res) => {
-    res.render('parent_register');
+    res.render('parent_register.ejs');
 });
 router.post('/parent_register', userController.registerParent);
 
@@ -53,9 +53,13 @@ router.get('/adminLogin', (req, res) => {
 router.post('/adminLogin', adminController.adminLogin)
 
 router.get('/admindash', (req, res) => {
-    res.render('admindash');
+    res.render('admindash.ejs');
 });
-//router.post('/adminLogin', adminController.adminLogin)
 
+router.get('/getYoung-hero', adminController.getYoungHeros, (req, res) => {
+    res.render('youngHeroes.ejs');
+});
+
+router.post('/addAdmin', adminController.addAdmin);
 
 module.exports = router;
