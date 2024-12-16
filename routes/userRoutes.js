@@ -50,6 +50,13 @@ router.get('/parent_register', (req, res) => {
 });
 router.post('/parent_register', userController.registerParent);
 
+//parent - login
+router.get('/parent_login', (req, res) =>{
+    res.render('parent_login.ejs');
+});
+
+router.post('/parent_login', userController.loginParent);
+
 //admin routes
 
 router.get('/adminLogin', (req, res) => {

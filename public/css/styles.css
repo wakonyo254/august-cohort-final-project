@@ -196,8 +196,8 @@ footer {
 
 .land {
     background-color: white;
-    background-image: url('../welcome.jpg');
-    background-size:auto;
+    background-image: url('../splash.jpg');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
@@ -280,8 +280,8 @@ footer a {
 
  .home {
     background-color: white;
-    background-image: url('../home-image.jpg');
-    background-size: auto;
+    background-image: url('../home.jpg');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
@@ -290,5 +290,100 @@ footer a {
     text-align: center;
     
  }
+
+ /* parent page styling*/
+ 
+.parent {
+    font-family: Arial, sans-serif;
+    background-color: #E1DEF8;
+    color: #4A4A4A;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.parent-container {
+    background: linear-gradient(145deg, #CFAFF1, #9A72D5);
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+    color: #4A4A4A;
+    font-size: 1.8rem;
+}
+
+#parentReg {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+label {
+    font-size: 1rem;
+    color: #4A4A4A;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 0.4rem;
+    border: 1px solid #9A72D5;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background-color: #F7F5FD;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #75E1ED;
+}
+
+#parbutton {
+    color: black;
+    background-color:#2dafd1
+}
+
+#parbutton:hover {
+    background-color:#4fc6f1;
+}
+
+p {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+p a {
+    color: #0cd185;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #75E1ED;
+}
+
+/*parent login button*/
+#parlogbutton {
+    margin: 6px;
+    color: black;
+    background-color:#2dafd1
+}
+
+#parlogbutton:hover {
+    background-color:#4fc6f1;
+}
+
+
 
  

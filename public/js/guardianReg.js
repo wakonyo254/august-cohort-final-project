@@ -1,4 +1,4 @@
-document.getElementById('parent_register').addEventListener('submit', async function(e) {
+document.getElementById('parentReg').addEventListener('submit', async function(e) {
     e.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
@@ -15,8 +15,7 @@ document.getElementById('parent_register').addEventListener('submit', async func
         return;
     }
 
-    //check the object beign collected
-    console.log({name, email, password, confirmPassword})
+   
     //fetch method
     try {
         const response = await fetch('/healthhero/api/user/parent_register', {
@@ -28,6 +27,7 @@ document.getElementById('parent_register').addEventListener('submit', async func
         });
       //use the console to display any errors and toastify library to display to the user
         if(response.ok){
+            document.getElementById('parentReg').reset();
             console.log('Guardian successfully registered!');
             Toastify({
                 text: "Guardian registered successfully!",
@@ -38,6 +38,7 @@ document.getElementById('parent_register').addEventListener('submit', async func
                 backgroundColor: "green",
             }).showToast();
         } else{
+            document.getElementById('parentReg').reset();
             console.log('An error occured during registration!')
             Toastify({
                 text: "An error occured during registration. Please try again.",
@@ -54,3 +55,6 @@ document.getElementById('parent_register').addEventListener('submit', async func
     };
 
 });
+
+
+

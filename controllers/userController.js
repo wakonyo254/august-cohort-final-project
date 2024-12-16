@@ -43,7 +43,7 @@ exports.loginChild = async (req, res) => {
         const [userRow] = await db.execute('SELECT * FROM children WHERE email = ?', [email]);
         if(!userRow.length > 0){
             console.error('user doesnot exist .please register!');
-            return res.status(500).redirect('/child_register')
+            return res.status(400).json({message: "User not found. Please register!"})
         }
         const user = userRow[0];
 
@@ -58,7 +58,7 @@ exports.loginChild = async (req, res) => {
             console.error ('Session save error:', err);
         })
          res.status(200).json({message: 'Successfully login!'});
-        // return res.redirect( "/healthhero/api/user/childdash");
+        
     } catch(error) {
         console.error(error);
         return res.status(500).json({message: 'An error occured during login!!', error});
@@ -68,22 +68,17 @@ exports.loginChild = async (req, res) => {
 //guadian signup
 exports.registerParent = async (req, res) => {
     const { name, email, password } = req.body;
-    //check
+    //check incoming details
     console.log('Incoming registration details: ', req.body);
     try{
         const [results] = await db.execute('SELECT email FROM parents WHERE email = ?', [email]);
-        //check
-        console.log('db results:', results);
-
+       
         if (results.length > 0) {
-            //check
-            console.log('guardian exists: ', email);
+           
             return res.status(400).json({message: 'Parent already exists!'});
         }
         //password hash
         const passwordHash = await bcrypt.hash(password, 10);
-        //confirm if password is hashed
-        console.log('the hashed password:', passwordHash)
         
         await db.execute('INSERT INTO parents(name, email, password_hash) VALUES(?, ?, ?)',
             [name, email, passwordHash]);
@@ -95,6 +90,35 @@ exports.registerParent = async (req, res) => {
 
     
 
+}
+
+//guardian login
+exports.loginParent = async (req, res) => {
+    const {email, password} = req.body;
+
+    try {
+        const [userRow] = await db.execute('SELECT * FROM parents WHERE email = ?', [email]);
+        if(!userRow.length > 0){
+            console.error('user does not exist. Please register!');
+            return res.status(500).redirect('/parent_register')
+        }
+        const user = userRow[0];
+
+        const  isMatch = await bcrypt.compare(password, user.password_hash);
+
+        if(!isMatch){
+            return res.status(400).json({message: 'Inavlid credentials!'});
+        }
+
+        // req.session.user = user
+        // req.session.save((err) => {
+        //     console.error ('Session save error:', err);
+        // })
+         res.status(200).json({message: 'Successfully login!'});
+    } catch(error) {
+        console.error(error);
+        return res.status(500).json({message: 'An error occured during login!!', error});
+    }
 }
 
 

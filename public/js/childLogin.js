@@ -15,7 +15,7 @@ document.getElementById('childLogin').addEventListener('submit', async(e) => {
     const result = await response.json();
 
 
-    if(!response.ok){
+    if(response.ok){
         alert(result.message);
          window.location.href= '/healthhero/api/user/childdash'
     } else {
