@@ -1,7 +1,13 @@
 # august-cohort-final-project
 # Heath Heroes System
 
-Welcome to Health Heroes Site! This project helps users engage in health-related challenges. It's built using Node.js, Ejs templates and a backend system.
+Welcome to Health Heroes Site! This project is a simplified, child-friendly webpage designed to engage young users in health-related challenges. Its primary goal is to create and enforce better health habits among children through interactive challenges, point tracking, and leaderboards. The system is built using Node.js, EJS templates, and a backend to manage these features seamlessly.
+
+Features
+Health Challenges: Interactive tasks to encourage healthy habits.
+Point System: Users earn points by completing challenges.
+Leaderboard: Tracks and displays user rankings to foster a sense of achievement and competition.
+Child-Friendly Design: Simplified interface tailored for young users to navigate and enjoy.
 
 Before you run this project locally, ensure you have Node.js in place .
 
